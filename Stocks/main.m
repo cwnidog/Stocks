@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BNRStockHolding.h"
+#import "BNRForeignStockHolding.h"
 
 int main(int argc, const char *argv[])
 {
@@ -35,6 +36,32 @@ int main(int argc, const char *argv[])
     stock3.currentPrice = 49.51;
     stock3.numberOfShares = 210;
     [stockList addObject:stock3];
+    
+    // create and initialize a BNRForeignSTockHolding and add it to the list
+    BNRForeignStockHolding *stock4 = [[BNRForeignStockHolding alloc] init];
+    stock4.purchasePrice = 100;
+    stock4.currentPrice = 150;
+    stock4.conversionRate = 1.5;
+    stock4.numberOfShares = 100;
+    [stockList addObject:stock4];
+    
+    // create and initialize a BNRForeignSTockHolding and add it to the list
+    BNRForeignStockHolding *stock5 = [[BNRForeignStockHolding alloc] init];
+    stock5.purchasePrice = 100;
+    stock5.currentPrice = 125;
+    stock5.conversionRate = 1.1;
+    stock5.numberOfShares = 50;
+    [stockList addObject:stock5];
+    
+    // create and initialize a BNRForeignSTockHolding and add it to the list
+    BNRForeignStockHolding *stock6 = [[BNRForeignStockHolding alloc] init];
+    stock6.purchasePrice = 100;
+    stock6.currentPrice = 100;
+    stock6.conversionRate = 0.95;
+    stock6.numberOfShares = 100;
+    [stockList addObject:stock6];
+
+   
     
     for (BNRStockHolding *stock in stockList)
     {
