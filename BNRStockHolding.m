@@ -12,43 +12,12 @@
 
 - (float)costInDollars
 {
-  return _purchasePrice * _numberOfShares;
+  return self.purchasePrice * self.numberOfShares;
 }
 
 - (float)valueInDollars
 {
-  return _currentPrice * _numberOfShares;
+  return self.currentPrice * self.numberOfShares;
 }
-
-- (float)purchasePrice
-{
-  return _purchasePrice;
-}
-
-- (void)setPurchasePrice:(float)price
-{
-  _purchasePrice = price;
-}
-
-- (float)currentPrice
-{
-  return _currentPrice;
-}
-
-- (void)setCurrentPrice:(float)price
-{
-  _currentPrice = price;
-}
-
-- (int)numberOfShares
-{
-  return _numberOfShares;
-}
-
-- (void)setNumberOfShares:(int)shares
-{
-  _numberOfShares = shares;
-}
-
 
 @end
