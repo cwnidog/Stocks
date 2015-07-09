@@ -10,19 +10,12 @@
 
 @interface BNRStockHolding : NSObject
 
-{
-  float _purchasePrice;
-  float _currentPrice;
-  int _numberOfShares;
-}
+@property (nonatomic) float purchasePrice;
+@property (nonatomic) float currentPrice;
+@property (nonatomic) int numberOfShares;
+
 
 - (float)costInDollars; // purchaseSharePrice * numberOfShares
 - (float)valueInDollars; // currentSharePrice * numberOfShares
-- (float)purchasePrice;
-- (void)setPurchasePrice:(float)price;
-- (float)currentPrice;
-- (void)setCurrentPrice:(float)price;
-- (int)numberOfShares;
-- (void)setNumberOfShares:(int)shares;
 
 @end
