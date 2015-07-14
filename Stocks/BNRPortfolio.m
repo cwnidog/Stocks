@@ -7,6 +7,14 @@
 //
 
 #import "BNRPortfolio.h"
+#import "BNRStockHolding.h"
+
+@interface BNRPortfolio()
+{
+  NSMutableArray *_holdings;
+}
+
+@end
 
 @implementation BNRPortfolio
 
@@ -37,5 +45,31 @@
   return _holdings;
 }
 
+- (void)addHolding:(float)purchasePrice currentPrice:(float)currPrice numberOfShares:(int)numShares symbol:(NSString *)sym
+{
+  // create the stock holding
+  BNRStockHolding *stock = [[BNRStockHolding alloc] init];
+  stock.purchasePrice = purchasePrice;
+  stock.currentPrice = currPrice;
+  stock.numberOfShares = numShares;
+  stock.symbol = sym;
+  
+  // add it to the portfolio's list of stock holdings
+  [_holdings addObject:stock];
+}
+
+- (void)removeHolding:(NSString *)symbol
+{
+  // check each of the stock holdings in the list
+  for (BNRStockHolding *h in _holdings)
+  {
+    if ([h.symbol isEqualToString:symbol]) // found it
+    {
+      // delete the stock holding from the list
+      [_holdings removeObject:h];
+      break;
+    } // if holding found in the list
+  } // for each holding in the list
+} // removeHolding()
 
 @end
