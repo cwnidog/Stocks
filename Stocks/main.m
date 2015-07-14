@@ -70,14 +70,20 @@ int main(int argc, const char *argv[])
     stock6.symbol = @"CP";
     [stockList addObject:stock6];
     
-    
     // create the portfolio and add the stock holdings
     BNRPortfolio *portfolio = [[BNRPortfolio alloc] initWithHoldings:stockList];
+    
+    // add another stock to holdings
+    [portfolio addHolding:125.0 currentPrice:156.75 numberOfShares:300 symbol:@"LUC"];
+    
+    // remove a holding
+    [portfolio removeHolding:@"M"];
+    
     for (BNRStockHolding *stock in [portfolio getHoldings])
     {
       NSLog(@"Stock %@: %d shares, purchase price: %.2f, current price: %.2f, cost: %.2f, value: %.2f\n", stock.symbol, stock.numberOfShares, stock.purchasePrice, stock.currentPrice, [stock costInDollars], [stock valueInDollars]);
     }
-    NSLog(@"Total value: %.2f", [portfolio totalValue]);
+    NSLog(@"Portfolio total value: %.2f", [portfolio totalValue]);
     
   } // autoreleasepool
     return 0;

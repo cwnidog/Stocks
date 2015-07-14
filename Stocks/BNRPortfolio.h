@@ -12,12 +12,10 @@
 
 
 @interface BNRPortfolio : NSObject
-{
-  NSMutableArray *_holdings;
-}
-
-- (BNRPortfolio *)initWithHoldings:(NSMutableArray*) stockList;
+- (BNRPortfolio *)initWithHoldings:(NSMutableArray*)stockList;
 - (NSMutableArray *)getHoldings;
 - (float)totalValue;
+- (void)removeHolding:(NSString *)symbol;
+- (void)addHolding:(float)purchasePrice currentPrice:(float)currPrice numberOfShares:(int)numShares symbol:(NSString *)sym;
 
 @end
