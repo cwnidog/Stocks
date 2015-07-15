@@ -77,7 +77,8 @@ int main(int argc, const char *argv[])
     [portfolio addHolding:125.0 currentPrice:156.75 numberOfShares:300 symbol:@"LUC"];
     
     // remove a holding
-    [portfolio removeHolding:@"M"];
+    [portfolio removeHolding:@"BTR"]; // will find this one & delete it
+    [portfolio removeHolding:@"FRED"]; // won't be able to find this one
     
     for (BNRStockHolding *stock in [portfolio getHoldings])
     {
