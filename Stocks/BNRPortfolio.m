@@ -60,16 +60,27 @@
 
 - (void)removeHolding:(NSString *)symbol
 {
+  BNRStockHolding *targetHolding;
+  
   // check each of the stock holdings in the list
   for (BNRStockHolding *h in _holdings)
   {
     if ([h.symbol isEqualToString:symbol]) // found it
     {
-      // delete the stock holding from the list
-      [_holdings removeObject:h];
-      break;
+      targetHolding = h;
     } // if holding found in the list
   } // for each holding in the list
+  
+  // delete the stock holding from the list
+  if (targetHolding != nil)
+  {
+    [_holdings removeObject:targetHolding];
+  }
+  else
+  {
+    NSLog(@"Target stock holding %@ not found for deletion", symbol);
+  }
+  
 } // removeHolding()
 
 @end
