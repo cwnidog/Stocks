@@ -76,6 +76,13 @@ int main(int argc, const char *argv[])
     // add another stock to holdings
     [portfolio addHolding:125.0 currentPrice:156.75 numberOfShares:300 symbol:@"LUC"];
     
+    // get the top three holdings an ddisplay them
+    NSArray *topHoldings = [portfolio getTopThree];
+    for (BNRStockHolding *holding in topHoldings)
+    {
+      NSLog(@"Top Holding: %@", holding.symbol);
+    }
+    
     // remove a holding
     [portfolio removeHolding:@"BTR"]; // will find this one & delete it
     [portfolio removeHolding:@"FRED"]; // won't be able to find this one
@@ -85,6 +92,7 @@ int main(int argc, const char *argv[])
       NSLog(@"Stock %@: %d shares, purchase price: %.2f, current price: %.2f, cost: %.2f, value: %.2f\n", stock.symbol, stock.numberOfShares, stock.purchasePrice, stock.currentPrice, [stock costInDollars], [stock valueInDollars]);
     }
     NSLog(@"Portfolio total value: %.2f", [portfolio totalValue]);
+    
     
   } // autoreleasepool
     return 0;
