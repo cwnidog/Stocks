@@ -76,11 +76,18 @@ int main(int argc, const char *argv[])
     // add another stock to holdings
     [portfolio addHolding:125.0 currentPrice:156.75 numberOfShares:300 symbol:@"LUC"];
     
-    // get the top three holdings an ddisplay them
+    // get the top three holdings and display them
     NSArray *topHoldings = [portfolio getTopThree];
     for (BNRStockHolding *holding in topHoldings)
     {
       NSLog(@"Top Holding: %@", holding.symbol);
+    }
+    
+    // display holdings in alphabetical order
+    NSArray *alphaHoldings = [portfolio alphaSort];
+    for (BNRStockHolding *holding in alphaHoldings)
+    {
+      NSLog(@"Holding: %@", holding.symbol);
     }
     
     // remove a holding
