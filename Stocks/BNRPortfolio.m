@@ -83,4 +83,23 @@
   
 } // removeHolding()
 
+- (NSArray *)getTopThree
+{
+  NSMutableArray *topThree = [[NSMutableArray alloc] init];
+  NSSortDescriptor *voh = [NSSortDescriptor sortDescriptorWithKey:@"currentPrice" ascending:NO];
+  NSMutableArray *sortedHoldings = [[NSMutableArray alloc] init];
+  
+  // don't want to change _holdings by side-effect, so use sortedHoldings
+  [sortedHoldings addObjectsFromArray:_holdings];
+  [sortedHoldings sortUsingDescriptors:@[voh]];
+  
+  // get the top three valued holdings and return them in topThree
+  for(int i = 0; i < 3; i++)
+  {
+    [topThree addObject:sortedHoldings[i]];
+  }
+  return topThree;
+  
+}
+
 @end
