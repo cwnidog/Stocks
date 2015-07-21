@@ -99,7 +99,19 @@
     [topThree addObject:sortedHoldings[i]];
   }
   return topThree;
+} // getTopThree()
+
+- (NSArray *)alphaSort
+{
+  NSSortDescriptor *alpha = [NSSortDescriptor sortDescriptorWithKey:@"symbol" ascending:YES];
+  NSMutableArray *sortedHoldings = [NSMutableArray new];
   
-}
+  // copy _holdings into sortedHoldings, so don't change it by side-effect
+  [sortedHoldings addObjectsFromArray:_holdings];
+  [sortedHoldings sortUsingDescriptors:@[alpha]];
+  return sortedHoldings;
+  
+  
+} // alphaSort()
 
 @end

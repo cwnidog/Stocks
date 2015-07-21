@@ -18,5 +18,6 @@
 - (void)removeHolding:(NSString *)symbol;
 - (void)addHolding:(float)purchasePrice currentPrice:(float)currPrice numberOfShares:(int)numShares symbol:(NSString *)sym;
 - (NSArray *)getTopThree;
+- (NSArray *)alphaSort;
 
 @end
